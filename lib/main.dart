@@ -13,9 +13,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'IFOOD',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.purple,
+        fontFamily: 'Montserrat',
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'IFOOD'),
     );
   }
 }
@@ -30,32 +31,81 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        backgroundColor: Colors.white,
+        title: Text(
+          widget.title,
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+      body: Container(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 0),
+          child: GridView.count(
+            crossAxisCount: 2,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Container(
+                  height: 225,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0),),
+                    image: DecorationImage(
+                      image: AssetImage("assets/hasil/rendang.jpg"),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0),),
+                    color: Colors.pink,
+                    image: DecorationImage(
+                      image: AssetImage("assets/hasil/gudeg.jpg"),
+                      fit: BoxFit.cover,
+                    )
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0),),
+                    color: Colors.pink,
+                    image: DecorationImage(
+                      image: AssetImage("assets/hasil/rawon.jpg"),
+                      fit: BoxFit.cover,
+                    )
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0),),
+                    color: Colors.pink,
+                    image: DecorationImage(
+                      image: AssetImage("assets/hasil/pempek.jpg"),
+                      fit: BoxFit.cover,
+                    )
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
